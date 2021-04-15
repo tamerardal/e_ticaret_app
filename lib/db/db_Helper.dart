@@ -38,5 +38,11 @@ class dbHelper{
   void create(Database db, int version) async{
     await db.execute("Create Table $tblProduct($colID integer primary key, $colName text, $colDescription text, $colPrice int");
   }
+
+  Future<int> add(Urun product) async{
+    Database db = await this.db;
+    var result = await db.insert(tblProduct, product.doMap());
+    return result;
+  }
 }
 
