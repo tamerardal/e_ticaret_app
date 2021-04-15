@@ -45,6 +45,18 @@ class dbHelper{
     return result;
   }
 
+  Future<int> delete(int id) async{
+    Database db = await this.db;
+    var result = await db.rawDelete("Delete from $tblProduct where $colID=$id");
+    return result;
+  }
+
+  Future<int> update(Urun product) async{
+    Database db = await this.db;
+    var result = await db.update(tblProduct, product.doMap());
+    return result;
+  }
+
   Future<List> getProducts() async{
     Database db = await this.db;
     var result = await db.rawQuery("Select * from $tblProduct");
