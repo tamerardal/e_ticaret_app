@@ -12,9 +12,20 @@ class dbHelper{
   String colPrice = "Price";
 
   static final dbHelper _dbHelper = dbHelper._internal();
+
   factory dbHelper(){
     return _dbHelper;
   }
 
+  static Database _db;
+
+  Future<Database> get db async{
+    if(_db != null){
+      _db = await createdb();
+    }
+    return _db;
+  }
+
   dbHelper._internal();
 }
+
