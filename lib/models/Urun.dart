@@ -44,6 +44,6 @@ class Urun{
     this._id = o["id"];
     this._name = o["name"];
     this._description = o["description"];
-    this._price = o["price"];
+    this._price = double.tryParse(o["price"].toString());
   }
 }
