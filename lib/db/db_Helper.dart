@@ -44,5 +44,11 @@ class dbHelper{
     var result = await db.insert(tblProduct, product.doMap());
     return result;
   }
+
+  Future<List> getProducts() async{
+    Database db = await this.db;
+    var result = await db.rawQuery("Select * from $tblProduct");
+    return result;
+  }
 }
 
