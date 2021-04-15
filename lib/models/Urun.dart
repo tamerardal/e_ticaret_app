@@ -40,4 +40,10 @@ class Urun{
     return map;
   }
 
+  Urun.fromObject(dynamic o){
+    this._id = o["id"];
+    this._name = o["name"];
+    this._description = o["description"];
+    this._price = o["price"];
+  }
 }
