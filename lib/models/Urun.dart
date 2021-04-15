@@ -26,4 +26,18 @@ class Urun{
   set price(double value) {
     _price = value;
   }
+
+  Map<String, dynamic> doMap(){
+    //dynamic tüm veri tiplerini kapsar
+    var map = Map<String, dynamic>();
+    map["name"] = _name;
+    map["description"] = _description;
+    map["price"] = _price;
+
+    if(_id != null){
+      map["id"] = _id;
+    }
+    return map;
+  }
+
 }
