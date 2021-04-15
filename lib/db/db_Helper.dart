@@ -1,3 +1,4 @@
+import 'dart:html';
 import 'package:sqflite/sqflite.dart';
 import 'dart:async';
 import 'dart:io';
@@ -25,7 +26,17 @@ class dbHelper{
     }
     return _db;
   }
+  Future<Database> createdb() async{
+    Directory directory = await getApplicationDocumentsDirectory();
+    String _path = directory.path + "eticaret.db";
+    var eTicaretDB = await openDatabase(_path, version: 1, onCreate: create);
+    return eTicaretDB;
+  }
 
   dbHelper._internal();
+
+  void create(Database db, int version) async{
+    await db.execute("Create Table $tblProduct($colID integer primary key, $colName text, $colDescription text, $colPrice int");
+  }
 }
 
