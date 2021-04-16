@@ -48,7 +48,7 @@ class ProductListState extends State{
     dbFuture.then((result){
       var productsFuture = dbhelper.getProducts();
       productsFuture.then((data){
-        List<Urun> productsData = new List<Urun>(;
+        List<Urun> productsData = new List<Urun>();
 
         var incomingProductValue = data.length;
         for(int i=0; i<incomingProductValue; i++){
