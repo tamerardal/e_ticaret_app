@@ -1,6 +1,6 @@
 import 'package:e_ticaret_app/db/db_Helper.dart';
 import 'package:flutter/material.dart';
-
+import 'Views/ProductList.dart';
 import 'db/db_Helper.dart';
 import 'models/Urun.dart';
 
@@ -15,68 +15,41 @@ class MyApp extends StatelessWidget {
     dbHelper dbhelper = new dbHelper();
     dbhelper.createdb().then((database) => {});
 
-    Urun prod1 = new Urun("Android TV", "OLED 52''", 7000);
+    /*Urun prod1 = new Urun("Android TV", "OLED 52''", 7000);
     dbhelper.add(prod1);
     Urun prod2 = new Urun("MacBook", "Pro", 16000);
     dbhelper.add(prod2);
     Urun prod3 = new Urun("IPhone 12", "Max", 12000);
     dbhelper.add(prod3);
     Urun prod4 = new Urun("Swatch", "Colorful", 1000);
-    dbhelper.add(prod4);
+    dbhelper.add(prod4);*/
 
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      title: "E-Ticaret Uygulaması",
+      home: Anasayfa(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
+class Anasayfa extends StatefulWidget{
   @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  State<StatefulWidget> createState() {
+    return AnasayfaState();
   }
 
+}
+
+class AnasayfaState extends State<Anasayfa>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text("e-Ticaret Uygulaması"),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+      body: ProductList(
+
       ),
     );
   }
+
 }
