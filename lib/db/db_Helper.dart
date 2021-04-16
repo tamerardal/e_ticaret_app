@@ -21,7 +21,7 @@ class dbHelper{
   static Database _db;
 
   Future<Database> get db async{
-    if(_db != null){
+    if(_db == null){
       _db = await createdb();
     }
     return _db;
