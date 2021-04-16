@@ -46,9 +46,7 @@ class AnasayfaState extends State<Anasayfa>{
       appBar: AppBar(
         title: Text("e-Ticaret Uygulaması"),
       ),
-      body: ProductList(
-
-      ),
+      body: ProductList(),
     );
   }
 
