@@ -1,8 +1,8 @@
+import 'package:e_ticaret_app/Views/ProductList.dart';
 import 'package:e_ticaret_app/db/db_Helper.dart';
 import 'package:flutter/material.dart';
-import 'Views/ProductList.dart';
 import 'db/db_Helper.dart';
-import 'models/Urun.dart';
+import 'package:e_ticaret_app/models/Urun.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,21 +11,20 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<Urun> products = new List<Urun>();
-    dbHelper dbhelper = new dbHelper();
-    dbhelper.createdb().then((database) => {});
+    List<Product> products = new List<Product>();
+    DbHelper dbHelper = new DbHelper();
+    dbHelper.createdb().then((database) => {});
 
-    Urun prod1 = new Urun("Android TV", "OLED 52''", 7000);
-    dbhelper.add(prod1);
-    Urun prod2 = new Urun("MacBook", "Pro", 16000);
-    dbhelper.add(prod2);
-    Urun prod3 = new Urun("IPhone 12", "Max", 12000);
-    dbhelper.add(prod3);
-    Urun prod4 = new Urun("Swatch", "Colorful", 1000);
-    dbhelper.add(prod4);
+/*    Product prod1 = new Product("Android TV", "OLED 52''", 7000);
+    dbHelper.add(prod1);
+    Product prod2 = new Product("MacBook", "Pro", 16000);
+    dbHelper.add(prod2);
+    Product prod3 = new Product("IPhone 12", "Max", 12000);
+    dbHelper.add(prod3);
+    Product prod4 = new Product("Apple Watch", "Seri 6", 1000);
+    dbHelper.add(prod4);*/
 
     return MaterialApp(
-      title: "E-Ticaret Uygulaması",
       home: Anasayfa(),
     );
   }
