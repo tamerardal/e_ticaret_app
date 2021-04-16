@@ -8,7 +8,6 @@ class ProductList extends StatefulWidget{
   State<StatefulWidget> createState() {
     return ProductListState();
   }
-
 }
 
 class ProductListState extends State{
@@ -34,9 +33,7 @@ class ProductListState extends State{
             ),
             title: Text(this.products[position].name),
             subtitle: Text(this.products[position].description),
-            onTap: (){
-
-            },
+            onTap: (){},
           ),
         );
       }

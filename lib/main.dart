@@ -15,14 +15,14 @@ class MyApp extends StatelessWidget {
     dbHelper dbhelper = new dbHelper();
     dbhelper.createdb().then((database) => {});
 
-    /*Urun prod1 = new Urun("Android TV", "OLED 52''", 7000);
+    Urun prod1 = new Urun("Android TV", "OLED 52''", 7000);
     dbhelper.add(prod1);
     Urun prod2 = new Urun("MacBook", "Pro", 16000);
     dbhelper.add(prod2);
     Urun prod3 = new Urun("IPhone 12", "Max", 12000);
     dbhelper.add(prod3);
     Urun prod4 = new Urun("Swatch", "Colorful", 1000);
-    dbhelper.add(prod4);*/
+    dbhelper.add(prod4);
 
     return MaterialApp(
       title: "E-Ticaret Uygulaması",
